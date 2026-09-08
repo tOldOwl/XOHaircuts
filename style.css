@@ -88,6 +88,7 @@ body {
   display: flex;
   min-height: 0;
 }
+/* =================================================================================== */
 
 /* 4. The Box: Perfect layout tracking for stacked items */
 .box-section {
@@ -115,6 +116,8 @@ body {
   min-height: 0; 
   height: 100%;
   max-height: 100%;
+  border-radius: 24px; /* Keeps the map image card beautifully rounded */
+  transition: filter 0.4s ease;
 }
 
 /* Preserves original dimensions and aspect ratio without stretching */
@@ -127,12 +130,12 @@ body {
   display: block;
 }
 
-/* 6. Text Container: Placed over the image track */
+/* Ensure the text wrapper defaults to the same grid stack layer */
 .box-text-wrapper {
   grid-area: stack;
-  z-index: 2;
-  text-align: center;
-  pointer-events: none; /* Allows mouse clicks to pass right through the text */
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Smoother motion path */
+  z-index: 10;           /* Keeps the text box floating strictly on top of images */
+  pointer-events: none;  /* Allows click actions to bypass the text box boundary layer */                      
 }
 
 .box-text-wrapper h3 {
@@ -140,7 +143,27 @@ body {
   font-size: 24px;
 }
 
+/* ─── DYNAMIC MULTI-VIEW STATE (Triggered via JS Button Click) ─── */
 
+/* 1. Enhanced Drop Shadow for the Image Border when any button is active */
+.directory-layout-active .box-image-wrapper {
+  filter: drop-shadow(0px 12px 28px rgba(0, 0, 0, 0.55)) 
+          drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));
+}
+
+/* 2. Cohesive Text Box Layout: Slides off to the side with custom border */
+.directory-layout-active .box-text-wrapper {
+  background-color: rgba(255, 255, 255, 0.98); 
+  border: 2px solid #333333;                   /* Sleek charcoal border that matches your layout frames */
+  border-radius: 12px;                         /* Rounded corners to complement the image */
+  padding: 12px 20px;
+  box-shadow: 0px 4px 16px rgba(0,0,0,0.15);   /* Soft subtle shadow beneath the text box */
+  
+  transform: translateX(205px);                /* Clean side tracking next to the shadowed image */
+  text-align: left;
+  pointer-events: none;                        /* Ensures box doesn't steal link clicks when moved */
+}
+/* =================================================================================== */
 
 /* Shared Base Styles for both Nav Outer Blocks */
 .book-nav, 
