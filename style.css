@@ -323,7 +323,6 @@ body {
 @media (max-width: 768px) {
 
   .header-title {
-    font-size: clamp(1.8rem, 8vw, 2.5rem)
     letter-spacing: normal;
     padding: 10px;
     word-break: break-word;
