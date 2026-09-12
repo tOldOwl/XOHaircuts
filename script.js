@@ -12,7 +12,7 @@ const viewImages = {
 
 // 3. Set up dynamic wording configurations
 const viewTexts = {
-  'directory-btn': 'Just north of the mall,<br> across the ravine',
+  'directory-btn': 'Just north of the mall,<br> across the ravine.<br>Bouquet / Espuella',
   'schedule-btn': 'Walk-In<br>Schedule',
   'aboutus-btn': 'Greeting! My name is Clint. <br>I opened XO Haircuts in<br> 2015. After many years of<br> success cutting peoples hair.'
 };
