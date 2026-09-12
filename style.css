@@ -328,7 +328,7 @@ body {
 
   /* Shrink the main title or logo text */
   header h1, .header-title {
-    font-size: 1rem;  /* Reduces the font size on smaller screens */
+    font-size: 0.5rem;  /* Reduces the font size on smaller screens */
   }
 
   /* Scale down any logo images */
