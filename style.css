@@ -328,9 +328,16 @@ body {
 
   /* Shrink the main title or logo text */
   header h1, .header-title {
-    font-size: 0.5rem;  /* Reduces the font size on smaller screens */
+    font-size: 1.5rem;  /* Reduces the font size on smaller screens */
   }
-
+  
+  .header-title {
+    font-size: clamp(1.8rem, 8vw, 2.5rem)
+    letter-spacing: normal;
+    padding: 10px;
+    word-break: break-word;
+  }
+  
   /* Scale down any logo images */
   header img {
     max-height: 40px;   /* Caps the height of your logo so it doesn't stay huge */
