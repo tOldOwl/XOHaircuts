@@ -326,11 +326,6 @@ body {
     min-height: auto;   /* Prevents the header from forcing a tall fixed height */
   }
 
-  /* Shrink the main title or logo text */
-  header h1, .header-title {
-    font-size: 1.5rem;  /* Reduces the font size on smaller screens */
-  }
-  
   .header-title {
     font-size: clamp(1.8rem, 8vw, 2.5rem)
     letter-spacing: normal;
