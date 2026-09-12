@@ -12,9 +12,9 @@ const viewImages = {
 
 // 3. Set up dynamic wording configurations
 const viewTexts = {
-  'directory-btn': 'North of the mall,<br> just across the ravine',
+  'directory-btn': 'Just north of the mall,<br> just across the ravine',
   'schedule-btn': 'Walk-In<br>Schedule',
-  'aboutus-btn': 'Greeting! My name is Clint. <br>I opened XO Haircuts since<br> 2015. After many years of<br> success cutting peoples hair.'
+  'aboutus-btn': 'Greeting! My name is Clint. <br>I opened XO Haircuts in<br> 2015. After many years of<br> success cutting peoples hair.'
 };
 
 // 4. Select your three navigation item link tags
