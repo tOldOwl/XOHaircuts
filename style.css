@@ -163,7 +163,7 @@ body {
 /* HOME PAGE POSITION OVERRIDE */
 .box-text-wrapper.home-floater {
   /* Adjusted for the home page banner graphic size */
-  transform: translateX(150px) !important; 
+  transform: translateX(250px) !important; 
 }
 
 /* TYPOGRAPHY CLEANUP & TEXT-WRAPPING FIX */
