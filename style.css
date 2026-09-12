@@ -322,6 +322,20 @@ body {
 /* Target devices smaller than 768px (tablets and phones) */
 @media (max-width: 768px) {
 
+  header {
+    padding: 10px 15px; /* Shrinks the vertical and horizontal space inside the header */
+    min-height: auto;   /* Prevents the header from forcing a tall fixed height */
+  }
+  /* Shrink the main title or logo text */
+  header h1, .header-title {
+    font-size: 1.5rem;  /* Reduces the font size on smaller screens */
+  }
+
+  /* Scale down any logo images */
+  header img {
+    max-height: 40px;   /* Caps the height of your logo so it doesn't stay huge */
+    width: auto;        /* Keeps the image aspect ratio correct */
+  }
     /* Stack navigation links vertically or hide them */
   header nav a {
     font-size: 14px;    /* Makes navigation text smaller */
