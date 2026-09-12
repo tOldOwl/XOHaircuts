@@ -130,19 +130,64 @@ body {
   display: block;
 }
 
-/* Ensure the text wrapper defaults to the same grid stack layer */
+/* ─── ======================================================== ─── */
+
+/* Universal Floating Box Container */
 .box-text-wrapper {
   grid-area: stack;
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Smoother motion path */
-  z-index: 10;           /* Keeps the text box floating strictly on top of images */
-  pointer-events: none;  /* Allows click actions to bypass the text box boundary layer */                      
+  position: relative;
+  align-self: center;
+  justify-self: center;
+  z-index: 20;
+  pointer-events: none;
+  display: block !important;
+  
+  /* VISUAL BUBBLE STYLE */
+  background-color: #ffffff !important;
+  padding: 20px 25px !important;
+  border-radius: 12px !important;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.45) !important;
+  
+  /* SIZING: Tells the parent container to shrink flawlessly to fit its content width */
+  width: max-content !important;
+  box-sizing: border-box !important;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  
+  /* ADJUSTED OVERLAP FOR CLINT: Set to 145px to pull the newly-widened box right 
+     so it barely overlaps the edge of Clint's portrait */
+  left: 0 !important;
+  margin-left: 0 !important;
+  transform: translateX(145px) !important; 
 }
 
-.box-text-wrapper h3 {
-  margin: 0;
-  font-size: 24px;
+/* HOME PAGE POSITION OVERRIDE */
+.box-text-wrapper.home-floater {
+  /* Adjusted for the home page banner graphic size */
+  transform: translateX(205px) !important; 
 }
 
+/* TYPOGRAPHY CLEANUP & TEXT-WRAPPING FIX */
+.box-text-wrapper h3,
+.box-text-wrapper div,
+.box-text-wrapper p {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  display: block !important;
+  color: #000000 !important;
+  text-align: center !important;
+  line-height: 1.4 !important;
+  font-size: 20px !important;
+
+  /* THE CRITICAL FIX: Forces the inner text blocks to expand to full content width 
+     instead of breaking text single words down into vertical columns */
+  width: max-content !important;
+  max-width: none !important;
+  white-space: nowrap !important; 
+}
+/* ─── ======================================================== ─── */
 /* ─── DYNAMIC MULTI-VIEW STATE (Triggered via JS Button Click) ─── */
 
 /* 1. Enhanced Drop Shadow for the Image Border when any button is active */
@@ -321,11 +366,11 @@ body {
 /* - - - 3. Media Queries for Screen Sizes  - - - - - */
 /* Target devices smaller than 768px (tablets and phones) */
 @media (max-width: 768px) {
-
   header {
     padding: 10px 15px; /* Shrinks the vertical and horizontal space inside the header */
     min-height: auto;   /* Prevents the header from forcing a tall fixed height */
   }
+
   /* Shrink the main title or logo text */
   header h1, .header-title {
     font-size: 1.5rem;  /* Reduces the font size on smaller screens */
@@ -336,7 +381,8 @@ body {
     max-height: 40px;   /* Caps the height of your logo so it doesn't stay huge */
     width: auto;        /* Keeps the image aspect ratio correct */
   }
-    /* Stack navigation links vertically or hide them */
+
+  /* Stack navigation links vertically or hide them */
   header nav a {
     font-size: 14px;    /* Makes navigation text smaller */
     padding: 5px;       /* Puts links closer together */
