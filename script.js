@@ -14,7 +14,7 @@ const viewImages = {
 const viewTexts = {
   'directory-btn': 'Summer<br>Greetings',
   'schedule-btn': 'Our<br>Schedule',
-  'aboutus-btn': 'About<br>Us'
+  'aboutus-btn': 'Greeting! My name is Clint. <br>I opened XO Haircuts since<br> 2015. After many years of<br> success cutting peoples hair.'
 };
 
 // 4. Select your three navigation item link tags
