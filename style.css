@@ -132,61 +132,53 @@ body {
 
 /* ─── ======================================================== ─── */
 
-/* Universal Floating Box Container */
+/* 1. UPDATE: Make the text box scale relative to its wrapper container */
 .box-text-wrapper {
   grid-area: stack;
-  position: relative;
-  align-self: center;
-  justify-self: center;
+  position: fixed; /* Keep it fixed so it doesn't move across pages */
+  top: 52%;        /* Vertically centered */
+  right: 18vw;     /* FIXED: Anchors it to the right side of the screen */
   z-index: 20;
   pointer-events: none;
   display: block !important;
   
-  /* VISUAL BUBBLE STYLE */
   background-color: #ffffff !important;
   padding: 20px 25px !important;
   border-radius: 12px !important;
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.45) !important;
   
-  /* SIZING: Tells the parent container to shrink flawlessly to fit its content width */
+  /* Prevent the box from breaking or overflowing the viewport on large zooms */
   width: max-content !important;
+  max-width: 90% !important; 
   box-sizing: border-box !important;
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   
-  /* ADJUSTED OVERLAP FOR CLINT: Set to 145px to pull the newly-widened box right 
-     so it barely overlaps the edge of Clint's portrait */
-  left: 0 !important;
+  /* FIXED: Cleaned up centering transforms so it strictly uses the right anchor */
+  left: auto !important; 
   margin-left: 0 !important;
-  transform: translateX(145px) !important; 
+  transform: translateY(-50%) !important; 
 }
 
-/* HOME PAGE POSITION OVERRIDE */
+/* 2. UPDATE: Fix the Home Page position override */
 .box-text-wrapper.home-floater {
-  /* Adjusted for the home page banner graphic size */
-  transform: translateX(250px) !important; 
+  /* FIXED: Match the default transform to keep position identical */
+  transform: translateY(-50%) !important; 
 }
 
-/* TYPOGRAPHY CLEANUP & TEXT-WRAPPING FIX */
-.box-text-wrapper h3,
-.box-text-wrapper div,
-.box-text-wrapper p {
-  margin: 0 !important;
-  padding: 0 !important;
-  background: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  display: block !important;
-  color: #000000 !important;
-  text-align: center !important;
-  line-height: 1.4 !important;
-  font-size: 20px !important;
-
-  /* THE CRITICAL FIX: Forces the inner text blocks to expand to full content width 
-     instead of breaking text single words down into vertical columns */
-  width: max-content !important;
-  max-width: none !important;
-  white-space: nowrap !important; 
-}
+/* 3. UPDATE: Fix the Dynamic Multi-View state tracking */
+.directory-layout-active .box-text-wrapper {
+  background-color: rgba(255, 255, 255, 0.98); 
+  border: 2px solid #333333;                   
+  border-radius: 12px;                         
+  padding: 12px 20px;
+  box-shadow: 0px 4px 16px rgba(0,0,0,0.15);   
+  
+  /* FIXED: Match the default transform to prevent jumps on layout changes */
+  transform: translateY(-50%) !important;                
+  text-align: left;
+  pointer-events: none;
+}          
+              
 /* ─── ======================================================== ─── */
 /* ─── DYNAMIC MULTI-VIEW STATE (Triggered via JS Button Click) ─── */
 
@@ -386,5 +378,30 @@ body {
   header nav a {
     font-size: 14px;    /* Makes navigation text smaller */
     padding: 5px;       /* Puts links closer together */
+  }
+  
+  .box-text-wrapper,
+  .box-text-wrapper.home-floater,
+  .directory-layout-active .box-text-wrapper {
+    /* 1. Reset desktop fixed placement so it drops below the image */
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    
+    /* 2. Center it horizontally under the image with a top gap */
+    margin: 20px auto 0 auto !important;
+    transform: none !important; 
+    
+    /* 3. Shrink the box size, padding, and text for smaller displays */
+    width: 85% !important; /* Forces it to fill the mobile width nicely */
+    max-width: 400px !important;
+    padding: 12px 16px !important; 
+    border-radius: 8px !important;
+    font-size: 0.85rem !important; /* Shrinks the text font size */
+    
+    /* 4. Text presentation adjustments */
+    text-align: center !important;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25) !important;
   }
 }
